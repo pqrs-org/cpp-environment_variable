@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/pqrs-org/cpp-environment_variable.svg?branch=master)](https://travis-ci.com/pqrs-org/cpp-environment_variable)
+[![Build Status](https://github.com/pqrs-org/cpp-environment_variable/workflows/CI/badge.svg)](https://github.com/pqrs-org/cpp-environment_variable/actions)
 [![License](https://img.shields.io/badge/license-Boost%20Software%20License-blue.svg)](https://github.com/pqrs-org/cpp-environment_variable/blob/master/LICENSE.md)
 
 # cpp-environment_variable
