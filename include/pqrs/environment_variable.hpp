@@ -8,6 +8,8 @@
 
 #include "environment_variable/parser.hpp"
 #include <cstdlib>
+#include <filesystem>
+#include <fstream>
 #include <optional>
 #include <string>
 
