@@ -117,12 +117,13 @@ inline void strip_eol_comment_inplace(std::string& s) {
         backslashes % 2 == 0 // Prevent “\#” from being interpreted as a comment.
     ) {
       s.erase(i);
-      pqrs::string::trim(s);
-      return;
+      break;
     }
 
     backslashes = 0;
   }
+
+  pqrs::string::trim(s);
 }
 
 // Decode backslash escapes and expand $VAR / ${VAR}.

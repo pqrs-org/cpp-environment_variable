@@ -57,7 +57,7 @@ void run_parser_test(void) {
     // escaped '#': odd number of backslashes → not a comment
     std::string b = R"(  KEY=val \# not comment  )";
     strip_eol_comment_inplace(b);
-    expect(b == R"(  KEY=val \# not comment  )"sv);
+    expect(b == R"(KEY=val \# not comment)"sv);
 
     // even number of backslashes before '#': starts a comment
     std::string c = R"(KEY=val \\# comment)";
@@ -73,6 +73,11 @@ void run_parser_test(void) {
     std::string e = "   # only comment   ";
     strip_eol_comment_inplace(e);
     expect(e.empty());
+
+    // trailing \r
+    std::string f = "KEY=val # comment\r";
+    strip_eol_comment_inplace(f);
+    expect(a == "KEY=val"sv);
   };
 
   //
