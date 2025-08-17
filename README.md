@@ -3,7 +3,13 @@
 
 # cpp-environment_variable
 
-A wrapper of `std::getenv`.
+A utility for environment variable handling.
+
+## Requirements
+
+cpp-environment_variable depends the following classes.
+
+- [pqrs::string](https://github.com/pqrs-org/cpp-string)
 
 ## Install
 
