@@ -1,3 +1,4 @@
+#include "parser_test.hpp"
 #include <boost/ut.hpp>
 #include <pqrs/environment_variable.hpp>
 
@@ -9,6 +10,8 @@ int main(void) {
     expect(pqrs::environment_variable::find("PATH") != std::nullopt);
     expect(pqrs::environment_variable::find("UNKNOWN_ENVIRONMENT_VARIABLE") == std::nullopt);
   };
+
+  run_parser_test();
 
   return 0;
 }
