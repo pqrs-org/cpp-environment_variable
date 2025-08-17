@@ -21,5 +21,22 @@ inline std::optional<std::string> find(const std::string& name) {
   return std::nullopt;
 }
 
+inline void load_environment_variables_from_file(const std::filesystem::path& path,
+                                                 const std::function<void(std::string_view name, std::string_view value)>& callback) {
+  std::ifstream in(path);
+  if (in) {
+    std::string line;
+    while (std::getline(in, line)) {
+      auto kv = parser::parse_line(line);
+      if (!kv) continue;
+
+      auto overwrite = 1;
+      if (setenv(kv->first.c_str(), kv->second.c_str(), overwrite) == 0) {
+        callback(kv->first, kv->second);
+      }
+    }
+  }
+}
+
 } // namespace environment_variable
 } // namespace pqrs

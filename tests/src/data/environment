@@ -1,0 +1,5 @@
+PATH=$HOME/opt/bin:$PATH
+PATH=/opt/homebrew/bin:$PATH
+# PATH=/usr/local/bin:$PATH
+XDG_CONFIG_HOME=$HOME/Library/Application Support/org.pqrs/config
+XDG_DATA_HOME=$HOME/Library/Application Support/org.pqrs/data
