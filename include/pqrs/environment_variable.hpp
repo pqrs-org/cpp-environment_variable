@@ -14,10 +14,9 @@
 #include <optional>
 #include <string>
 
-namespace pqrs {
-namespace environment_variable {
+namespace pqrs::environment_variable {
 
-inline std::optional<std::string> find(const std::string& name) {
+[[nodiscard]] inline std::optional<std::string> find(const std::string& name) {
   if (const char* p = std::getenv(name.c_str())) {
     return p;
   }
@@ -41,5 +40,4 @@ inline void load_environment_variables_from_file(const std::filesystem::path& pa
   }
 }
 
-} // namespace environment_variable
-} // namespace pqrs
+} // namespace pqrs::environment_variable

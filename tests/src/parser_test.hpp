@@ -9,9 +9,9 @@ using namespace boost::ut::literals;
 using namespace pqrs::environment_variable::parser;
 using namespace std::string_view_literals;
 
-void run_parser_test(void) {
+void run_parser_test() {
   expect(setenv("HOME", "/tmp/ut-home", 1) == 0_i);
-  unsetenv("UNDEF");
+  expect(unsetenv("UNDEF") == 0_i);
 
   "scan_env_name/basic"_test = [] {
     auto s = std::string_view{"FOO1_BAR/BAZ"};
@@ -77,7 +77,7 @@ void run_parser_test(void) {
     // trailing \r
     std::string f = "KEY=val # comment\r";
     strip_eol_comment_inplace(f);
-    expect(a == "KEY=val"sv);
+    expect(f == "KEY=val"sv);
   };
 
   //
