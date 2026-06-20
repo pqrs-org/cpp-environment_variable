@@ -27,7 +27,7 @@ namespace pqrs::environment_variable {
 }
 
 inline void load_environment_variables_from_file(const std::filesystem::path& path,
-                                                 const std::function<void(std::string_view name, std::string_view value)>& callback) {
+                                                 const std::function<void(const std::string& name, const std::string& value)>& callback) {
   std::ifstream in(path);
   if (in) {
     std::string line;
