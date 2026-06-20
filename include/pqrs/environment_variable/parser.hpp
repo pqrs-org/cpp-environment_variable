@@ -4,7 +4,6 @@
 // Distributed under the Boost Software License, Version 1.0.
 // (See https://www.boost.org/LICENSE_1_0.txt)
 
-#include <cctype>
 #include <cstdlib>
 #include <optional>
 #include <pqrs/string.hpp>
@@ -20,11 +19,14 @@ enum class quote_kind {
 };
 
 [[nodiscard]] inline bool env_name_start(unsigned char c) noexcept {
-  return std::isalpha(c) || c == '_';
+  return (c >= 'A' && c <= 'Z') ||
+         (c >= 'a' && c <= 'z') ||
+         c == '_';
 }
 
 [[nodiscard]] inline bool env_name_char(unsigned char c) noexcept {
-  return std::isalnum(c) || c == '_';
+  return env_name_start(c) ||
+         (c >= '0' && c <= '9');
 }
 
 // Scan an environment variable name from s[pos]; return end index [pos, end).

@@ -29,6 +29,7 @@ void run_parser_test() {
     expect(!is_valid_env_name(""sv));
     expect(!is_valid_env_name("1ABC"sv));
     expect(!is_valid_env_name("A-B"sv)); // hyphen not allowed
+    expect(!is_valid_env_name("Ä"sv));   // environment variable names are ASCII-only in this parser
   };
 
   "strip_quotes_no_decode"_test = [] {
