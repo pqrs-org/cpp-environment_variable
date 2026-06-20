@@ -16,6 +16,9 @@
 
 namespace pqrs::environment_variable {
 
+// These functions read and modify the process-global environment through
+// getenv and setenv. Avoid concurrent environment access from multiple threads.
+
 [[nodiscard]] inline std::optional<std::string> find(const std::string& name) {
   if (const char* p = std::getenv(name.c_str())) {
     return p;
